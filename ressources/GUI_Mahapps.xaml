@@ -1,0 +1,139 @@
+<Controls:MetroWindow
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="Window" 
+        Title="" Height="430" Width="600" 
+        ShowInTaskbar = "True"
+        WindowStartupLocation = "CenterScreen"
+        ResizeMode = "NoResize" 
+        WindowStyle="ThreeDBorderWindow" 
+        WindowTransitionsEnabled="True"
+        FontWeight="Bold"
+        BorderThickness="0" 
+        GlowBrush="Black">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->               
+                <ResourceDictionary Source=".\Icons.xaml" />
+                <ResourceDictionary Source=".\custom.xaml" />                 
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Green.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <!-- About Button in Menu Bar RIGHT -->
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>				
+            <Button x:Name="ABoutButton" ToolTip="About this app">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_alien}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>			
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <!-- Network Icon on top left -->
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>				
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_circle_growth}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>			
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
+    <!-- Flyout when clicking About Button in Menu Bar -->
+    <Controls:MetroWindow.Flyouts>
+		<Controls:FlyoutsControl>
+			<Controls:Flyout x:Name="FlyOutAbout" Header="About" Theme="Adapt" Position="Right" Width="200">
+				<StackPanel Orientation="Vertical">
+				        <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" Width="200" HorizontalAlignment="Left" Margin="10,-15,0,0">
+                            <Label x:Name="Version" Content="" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="Black"/>
+                            <Label x:Name="Date" Content="" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="Black"/>
+                            <Label x:Name="Author" Content="" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="Black"/>
+                        </StackPanel>	
+                    </StackPanel>               
+			</Controls:Flyout>	
+		</Controls:FlyoutsControl>
+	</Controls:MetroWindow.Flyouts>	
+
+    <Grid>
+	<StackPanel>
+		<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="500">
+		<!-- StackPanel for BITCOIN informations -->
+			<StackPanel Margin="0,0,0,0" Orientation="Vertical">
+				<GroupBox Header="BITCOIN - BTC" FlowDirection="LeftToRight" Height="180" Margin="10,30,10,10" Width="150" HorizontalAlignment="Center">	
+					<StackPanel Orientation="Vertical"  FlowDirection="LeftToRight" Margin="0,0,0,0" HorizontalAlignment="Left">
+							<Label x:Name="BTCLastLabel" Content="LAST" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+							<Label x:Name="BTCHighLabel" Content="High" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+							<Label x:Name="BTCLowLabel" Content="Low" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+							<Label x:Name="BTCBidLabel" Content="Bid" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+							<Label x:Name="BTCAskLabel" Content="Ask" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+			
+			<!-- StackPanel for ETHEREUM informations -->
+			<StackPanel Margin="0,0,0,0" Orientation="Vertical">
+				<GroupBox Header="ETHEREUM - ETH" FlowDirection="LeftToRight" Height="180" Margin="10,30,10,10" Width="150" HorizontalAlignment="Center">	
+					<StackPanel Orientation="Vertical"  FlowDirection="LeftToRight" Margin="0,0,0,0" HorizontalAlignment="Left">
+						<Label x:Name="ETHLastLabel" Content="LAST" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="ETHHighLabel" Content="High" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="ETHLowLabel" Content="Low" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="ETHBidLabel" Content="Bid" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="ETHAskLabel" Content="Ask" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>	
+			
+			<!-- StackPanel for RIPPLE informations -->
+			<StackPanel Margin="0,0,0,0" Orientation="Vertical">
+				<GroupBox Header="RIPPLE - XRP" FlowDirection="LeftToRight" Height="180" Margin="10,30,10,10" Width="150" HorizontalAlignment="Center">	
+					<StackPanel Orientation="Vertical"  FlowDirection="LeftToRight" Margin="0,0,0,0" HorizontalAlignment="Left">
+						<Label x:Name="XRPLastLabel" Content="LAST" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="XRPHighLabel" Content="High" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="XRPLowLabel" Content="Low" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="XRPBidLabel" Content="Bid" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+						<Label x:Name="XRPAskLabel" Content="Ask" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>						
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>					
+		</StackPanel>
+	
+		<!-- StackPanel for Logs TextBox -->
+		<StackPanel Margin="0,0,0,0" Orientation="Vertical">
+			<Grid Background="Green" Height="100" Width="490">
+			<ScrollViewer x:Name="ScrollLogs" VerticalScrollBarVisibility="Auto">
+				<TextBlock x:Name="TBLogs" Margin="2,2,2,2" Background="White">
+				</TextBlock>
+			</ScrollViewer>
+			</Grid>
+		</StackPanel>
+		
+		<!-- StackPanel for Refresh Button -->
+        <StackPanel Margin="0,0,0,0" Orientation="Vertical" HorizontalAlignment="Center" Width="500">
+            <StackPanel Orientation="Horizontal"  FlowDirection="LeftToRight" Margin="0,10,0,0">
+				<Button x:Name="StartButton" Content="Start" Height="35" Width="80"/>
+				<Button x:Name="StopButton" Content="Stop" Height="35" Width="80" Margin="10,0,0,0"/>
+                <Button x:Name="RefreshButton" Content="Refresh" Height="35" Width="80" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+	</StackPanel>
+	
+    </Grid>
+</Controls:MetroWindow>
