@@ -1,0 +1,1 @@
+.\ps2exe.ps1 -inputFile .\SHN-Crypto-Infos.ps1 -outputFile .\SHN-Crypto-Infos.exe -debug -verbose -noConsole -iconFile .\ressources\AppIcon.ico -title "SHN-Crypto-Infos" -company "Shell-networks.fr" -product "SHN-Crypto-Infos" -copyright "Guillaume M." -version "1.0"
